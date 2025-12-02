@@ -55,15 +55,13 @@
         }
 
         .logo {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--primary);
-            letter-spacing: -0.5px;
+            display: flex;
+            align-items: center;
         }
 
-        .logo span {
-            color: var(--accent);
+        .logo-header {
+            height: 50px;
+            width: auto;
         }
 
         .header-cta {
@@ -119,10 +117,19 @@
             font-size: 0.85rem;
             font-weight: 600;
             color: var(--accent);
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
             padding: 0.5rem 1rem;
             background: rgba(255, 107, 53, 0.08);
             border-radius: 50px;
+        }
+
+        .hero-pretitle {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+            letter-spacing: -1px;
         }
 
         .hero h1 {
@@ -260,26 +267,81 @@
         /* Quote */
         .quote-section {
             text-align: center;
-            padding: 5rem 2rem;
+            padding: 4rem 2rem;
             max-width: 900px;
             margin: 0 auto;
         }
 
         .quote-text {
             font-family: 'Space Grotesk', sans-serif;
-            font-size: clamp(1.8rem, 4vw, 2.8rem);
+            font-size: clamp(1.6rem, 3vw, 2.4rem);
             font-weight: 500;
             color: var(--primary);
-            line-height: 1.4;
+            line-height: 1.5;
             position: relative;
+            padding: 0 1rem;
         }
 
-        .quote-text::before,
-        .quote-text::after {
-            content: '"';
-            font-size: 5rem;
+        .quote-mark {
             color: var(--accent);
-            opacity: 0.2;
+            opacity: 0.3;
+            font-size: 1.2em;
+            vertical-align: top;
+        }
+
+        .quote-mark-open {
+            margin-right: 0.2em;
+        }
+
+        .quote-mark-close {
+            margin-left: 0.2em;
+        }
+
+        /* Toggle */
+        .toggle-container {
+            display: flex;
+            justify-content: center;
+            gap: 0;
+            margin-bottom: 3rem;
+            background: var(--gray-200);
+            border-radius: 50px;
+            padding: 0.5rem;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .toggle-btn {
+            flex: 1;
+            padding: 1rem 2rem;
+            border: none;
+            background: transparent;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--gray-700);
+            cursor: pointer;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+
+        .toggle-btn:hover {
+            color: var(--primary);
+        }
+
+        .toggle-btn.active {
+            background: var(--primary);
+            color: white;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .toggle-content {
+            display: none;
+        }
+
+        .toggle-content.active {
+            display: block;
+            animation: fadeIn 0.4s ease;
         }
 
         /* Cards Grid */
@@ -440,6 +502,27 @@
             line-height: 1;
         }
 
+        .program-links {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.8rem;
+            margin-top: 3rem;
+        }
+
+        .program-link {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.05rem;
+            transition: all 0.3s ease;
+        }
+
+        .program-link:hover {
+            color: var(--primary);
+            text-decoration: underline;
+        }
+
         /* CTA Banner */
         .cta-banner {
             background: linear-gradient(135deg, var(--primary) 0%, #2a2a2a 100%);
@@ -485,11 +568,161 @@
             box-shadow: 0 12px 32px rgba(255, 107, 53, 0.4);
         }
 
+        /* Startup Grid */
+        .startup-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .startup-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2.5rem;
+            text-align: center;
+            border: 1px solid var(--gray-200);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .startup-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+            border-color: var(--accent);
+        }
+
+        .startup-logo {
+            margin-bottom: 1.5rem;
+            height: 140px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .startup-logo img {
+            max-height: 100%;
+            max-width: 240px;
+            object-fit: contain;
+        }
+
+        .startup-description {
+            color: var(--gray-700);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        @media (max-width: 1024px) {
+            .startup-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* CTA Cards */
+        .cta-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .cta-card {
+            background: white;
+            border-radius: 20px;
+            padding: 3rem;
+            text-align: center;
+            border: 2px solid var(--gray-200);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .cta-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 24px 64px rgba(0, 0, 0, 0.1);
+        }
+
+        .cta-card-primary:hover {
+            border-color: var(--accent);
+        }
+
+        .cta-card-secondary:hover {
+            border-color: var(--primary);
+        }
+
+        .cta-card-icon {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-card h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .cta-card p {
+            color: var(--gray-700);
+            font-size: 1.1rem;
+            line-height: 1.7;
+            margin-bottom: 2rem;
+        }
+
+        .btn-cta-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1.2rem 2.5rem;
+            background: var(--accent);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .btn-cta-primary:hover {
+            background: var(--primary);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-cta-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1.2rem 2.5rem;
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .btn-cta-secondary:hover {
+            background: var(--accent);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 32px rgba(255, 107, 53, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            .cta-cards {
+                grid-template-columns: 1fr;
+            }
+        }
+
         /* Footer */
         .footer {
             background: var(--gray-900);
             color: white;
-            padding: 5rem 3rem 3rem;
+            padding: 5rem 3rem 0;
+        }
+
+        .footer-white {
+            background: white;
+            margin: 3rem -3rem 0;
+            padding: 2rem 3rem;
         }
 
         .footer-content {
@@ -552,14 +785,57 @@
             margin: 3rem 0;
         }
 
+        .footer-logos-section {
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-partner-logos {
+            max-width: 100%;
+            height: auto;
+            max-height: 80px;
+        }
+
         .footer-bottom {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 2rem;
-            opacity: 0.6;
+            text-align: center;
             font-size: 0.9rem;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-credits {
+            font-size: 0.85rem;
+            opacity: 0.8;
+        }
+
+        /* Press Section */
+        .press-section {
+            margin-top: 3rem;
+            padding: 2.5rem;
+            background: white;
+            border-radius: 16px;
+            border: 1px solid var(--gray-200);
+        }
+
+        .press-logos {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 2.5rem;
+        }
+
+        .press-logos img {
+            height: 100px;
+            max-width: 260px;
+            object-fit: contain;
+            transition: all 0.3s ease;
+        }
+
+        .press-logos img:hover {
+            transform: scale(1.05);
         }
 
         .footer-logos {
@@ -598,6 +874,15 @@
                 padding: 1rem 1.5rem;
             }
 
+            .logo-header {
+                height: 50px;
+            }
+
+            .header-cta {
+                padding: 0.6rem 1.2rem;
+                font-size: 0.85rem;
+            }
+
             .section {
                 padding: 4rem 1.5rem;
             }
@@ -607,8 +892,38 @@
                 margin-top: 80px;
             }
 
+            .hero-pretitle {
+                font-size: 1.2rem;
+            }
+
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .section-description {
+                font-size: 1rem;
+            }
+
             .cards-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .toggle-container {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .toggle-btn {
+                width: 100%;
+                padding: 1rem;
             }
 
             .cta-group {
@@ -626,9 +941,109 @@
                 height: 280px;
             }
 
+            .startup-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .startup-card {
+                padding: 2rem;
+            }
+
+            .startup-logo {
+                height: 100px;
+            }
+
+            .startup-logo img {
+                max-width: 180px;
+            }
+
+            .press-section {
+                padding: 1.5rem;
+            }
+
+            .press-logos {
+                gap: 1.5rem;
+            }
+
+            .press-logos img {
+                height: 35px;
+                max-width: 100px;
+            }
+
+            .cta-card {
+                padding: 2rem;
+            }
+
+            .cta-card h3 {
+                font-size: 1.4rem;
+            }
+
+            .program-container {
+                margin: 2rem auto 0;
+            }
+
+            .program-header {
+                padding: 2rem;
+            }
+
+            .program-header h3 {
+                font-size: 1.6rem;
+            }
+
+            .program-item {
+                padding: 2rem;
+            }
+
+            .footer {
+                padding: 3rem 1.5rem 0;
+            }
+
+            .footer-white {
+                margin: 2rem -1.5rem 0;
+                padding: 1.5rem;
+            }
+
+            .footer-main {
+                gap: 2rem;
+            }
+
+            .footer-brand h3 {
+                font-size: 1.6rem;
+            }
+
+            .footer-partner-logos {
+                max-width: 100%;
+            }
+
             .footer-bottom {
                 flex-direction: column;
                 text-align: center;
+            }
+
+            .quote-section p {
+                font-size: 1.3rem;
+            }
+
+            .output-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .section-title {
+                font-size: 1.6rem;
+            }
+
+            .output-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-cards {
+                grid-template-columns: 1fr;
             }
         }
 
@@ -649,8 +1064,10 @@
     <!-- Header -->
     <header class="header">
         <div class="header-content">
-            <div class="logo">Cosenza <span>Open</span></div>
-            <a href="#apply" class="header-cta">Iscriviti Ora</a>
+            <div class="logo">
+                <img src="logo-coi.svg" alt="Cosenza Open Incubator" class="logo-header">
+            </div>
+            <a href="#partecipa" class="header-cta">Partecipa</a>
         </div>
     </header>
 
@@ -660,18 +1077,16 @@
             <div class="hero-badge">
                 📍 11-12 Dicembre 2025
             </div>
+            <p class="hero-pretitle">Cosenza Open</p>
             <h1>Experience <span>Tour</span></h1>
             <p class="hero-subtitle">
                 Un laboratorio narrativo nel cuore di Cosenza. Due giorni per scoprire,
                 documentare e raccontare il centro storico attraverso uno sguardo professionale.
             </p>
             <div class="cta-group">
-                <a href="#apply" class="btn-primary">
-                    Partecipa al Tour
+                <a href="#come-funziona" class="btn-primary">
+                    Scopri come funziona
                     <span>→</span>
-                </a>
-                <a href="#programma" class="btn-secondary">
-                    Scopri di più
                 </a>
             </div>
         </div>
@@ -690,103 +1105,187 @@
         <div class="container">
             <div class="quote-section fade-in">
                 <p class="quote-text">
-                    Si può vivere un viaggio anche in 1000 metri di strada:
-                    ciò che conta è la qualità dello sguardo
+                    <span class="quote-mark quote-mark-open">"</span>Si può vivere un viaggio anche in 1000 metri di strada: ciò che conta è la qualità dello sguardo<span class="quote-mark quote-mark-close">"</span>
                 </p>
             </div>
         </div>
     </section>
 
-    <!-- Chi Può Partecipare -->
-    <section class="section section-alt">
+    <!-- Come Funziona -->
+    <section class="section section-alt" id="come-funziona">
         <div class="container">
             <div class="section-header">
-                <div class="section-tag">Per Chi</div>
-                <h2 class="section-title">Chi Può Partecipare</h2>
+                <div class="section-tag">Come Funziona</div>
+                <h2 class="section-title">Scegli il tuo ruolo</h2>
                 <p class="section-description">
-                    Un invito aperto a professionisti che sanno trasformare
-                    luoghi e storie in narrazioni autentiche
+                    L'Experience Tour coinvolge due anime: chi racconta e chi si racconta
                 </p>
             </div>
 
-            <div class="cards-grid">
-                <div class="card fade-in">
-                    <h3>Professionisti</h3>
-                    <p>L'esperienza è aperta a:</p>
-                    <ul>
-                        <li>Giornalisti e reporter</li>
-                        <li>Fotografi professionisti</li>
-                        <li>Videomaker e filmmaker</li>
-                        <li>Content creator</li>
-                        <li>Podcaster</li>
-                        <li>Storyteller digitali</li>
-                    </ul>
-                </div>
+            <!-- Toggle -->
+            <div class="toggle-container">
+                <button class="toggle-btn active" data-target="professionista">Sono un Professionista</button>
+                <button class="toggle-btn" data-target="attivita">Ho un'attività nel centro storico</button>
+            </div>
 
-                <div class="card fade-in">
-                    <h3>Cosa Otterrai</h3>
-                    <p>La partecipazione ti offre:</p>
-                    <ul>
-                        <li>Accesso esclusivo a botteghe e laboratori</li>
-                        <li>Contenuti originali per il tuo portfolio</li>
-                        <li>Network con altri professionisti</li>
-                        <li>Visibilità sui canali Cosenza Open</li>
-                        <li>Kit e supporto logistico</li>
-                    </ul>
-                </div>
+            <!-- Professionista Content -->
+            <div class="toggle-content active" id="professionista">
+                <div class="cards-grid">
+                    <div class="card fade-in">
+                        <h3>Chi Cerchiamo</h3>
+                        <p>L'esperienza è aperta a:</p>
+                        <ul>
+                            <li>Giornalisti e reporter</li>
+                            <li>Fotografi professionisti</li>
+                            <li>Videomaker e filmmaker</li>
+                            <li>Content creator</li>
+                            <li>Podcaster</li>
+                            <li>Storyteller digitali</li>
+                        </ul>
+                    </div>
 
-                <div class="card fade-in">
-                    <h3>L'Approccio</h3>
-                    <p>Il tour richiede:</p>
-                    <ul>
-                        <li>Esplorazione lenta del territorio</li>
-                        <li>Sguardo professionale e attento</li>
-                        <li>Capacità di ascolto</li>
-                        <li>Rispetto per residenti e attività</li>
-                        <li>Autonomia creativa</li>
-                    </ul>
+                    <div class="card fade-in">
+                        <h3>Cosa Otterrai</h3>
+                        <p>La partecipazione ti offre:</p>
+                        <ul>
+                            <li>Accesso esclusivo a botteghe e laboratori</li>
+                            <li>Contenuti originali per il tuo portfolio</li>
+                            <li>Network con altri professionisti</li>
+                            <li>Visibilità sui canali Cosenza Open</li>
+                            <li>Kit e supporto logistico</li>
+                        </ul>
+                    </div>
+
+                    <div class="card fade-in">
+                        <h3>L'Approccio</h3>
+                        <p>Il tour richiede:</p>
+                        <ul>
+                            <li>Esplorazione lenta del territorio</li>
+                            <li>Sguardo professionale e attento</li>
+                            <li>Capacità di ascolto</li>
+                            <li>Rispetto per residenti e attività</li>
+                            <li>Autonomia creativa</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Attività Content -->
+            <div class="toggle-content" id="attivita">
+                <div class="cards-grid">
+                    <div class="card fade-in">
+                        <h3>Chi Cerchiamo</h3>
+                        <p>Invitiamo a partecipare:</p>
+                        <ul>
+                            <li>Botteghe artigiane</li>
+                            <li>Laboratori creativi</li>
+                            <li>Attività commerciali storiche</li>
+                            <li>Studi e spazi culturali</li>
+                            <li>Realtà del centro storico</li>
+                        </ul>
+                    </div>
+
+                    <div class="card fade-in">
+                        <h3>Cosa Otterrai</h3>
+                        <p>Aderendo al percorso:</p>
+                        <ul>
+                            <li>Visibilità attraverso i contenuti prodotti</li>
+                            <li>Racconto professionale della tua attività</li>
+                            <li>Inserimento nel network Cosenza Open</li>
+                            <li>Partecipazione all'evento finale</li>
+                            <li>Valorizzazione del tuo lavoro</li>
+                        </ul>
+                    </div>
+
+                    <div class="card fade-in">
+                        <h3>Cosa Chiediamo</h3>
+                        <p>Per partecipare:</p>
+                        <ul>
+                            <li>Disponibilità ad accogliere i professionisti</li>
+                            <li>Apertura al racconto della tua storia</li>
+                            <li>Condivisione del tuo sapere</li>
+                            <li>Collaborazione con il team COI</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Output -->
+    <!-- Esperienza -->
     <section class="section">
         <div class="container">
             <div class="section-header">
-                <div class="section-tag">Output</div>
-                <h2 class="section-title">Cosa Produrrai</h2>
+                <div class="section-tag">L'Esperienza</div>
+                <h2 class="section-title">Un viaggio da vivere</h2>
                 <p class="section-description">
-                    I contenuti che creerai diventeranno parte della narrazione
-                    collettiva di Cosenza Open
+                    Due giorni per immergersi nel cuore pulsante di Cosenza, scoprire storie autentiche
+                    e lasciarsi ispirare dall'anima del centro storico
                 </p>
             </div>
 
             <div class="output-grid">
                 <div class="output-item fade-in">
-                    <span class="output-icon">📰</span>
-                    <div class="output-label">Articoli & Reportage</div>
+                    <span class="output-icon">🚶</span>
+                    <div class="output-label">Esplorazione Libera</div>
                 </div>
                 <div class="output-item fade-in">
-                    <span class="output-icon">📷</span>
-                    <div class="output-label">Photo Stories</div>
+                    <span class="output-icon">🤝</span>
+                    <div class="output-label">Incontri Autentici</div>
                 </div>
                 <div class="output-item fade-in">
-                    <span class="output-icon">🎬</span>
-                    <div class="output-label">Video & Documentari</div>
+                    <span class="output-icon">✨</span>
+                    <div class="output-label">Storie da Scoprire</div>
                 </div>
                 <div class="output-item fade-in">
-                    <span class="output-icon">🎙️</span>
-                    <div class="output-label">Podcast & Audio</div>
+                    <span class="output-icon">📍</span>
+                    <div class="output-label">Luoghi Unici</div>
                 </div>
             </div>
 
             <div class="cta-banner fade-in">
                 <h3>Evento Finale</h3>
                 <p>
-                    Tutti i contenuti prodotti alimenteranno un evento di restituzione pubblica,
-                    contribuendo alla valorizzazione culturale del centro storico.
+                    Al termine del tour, un evento di restituzione pubblica raccoglierà
+                    tutte le esperienze vissute, contribuendo alla valorizzazione culturale del centro storico.
                 </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Aziende COI -->
+    <section class="section section-alt">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-tag">Il Percorso</div>
+                <h2 class="section-title">Percorsi creati dalle imprese del COI</h2>
+                <p class="section-description">
+                    Le aziende incubate dal Cosenza Open Incubator hanno contribuito a creare
+                    esperienze uniche per scoprire il centro storico
+                </p>
+            </div>
+
+            <div class="startup-grid">
+                <div class="startup-card fade-in">
+                    <div class="startup-logo">
+                        <img src="logo-3dplus.png" alt="3D Plus">
+                    </div>
+                    <p class="startup-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.</p>
+                </div>
+
+                <div class="startup-card fade-in">
+                    <div class="startup-logo">
+                        <img src="logo-aistech.png" alt="Aistech">
+                    </div>
+                    <p class="startup-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.</p>
+                </div>
+
+                <div class="startup-card fade-in">
+                    <div class="startup-logo">
+                        <img src="logo-elleblab.png" alt="ElleBLab">
+                    </div>
+                    <p class="startup-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -832,6 +1331,13 @@
                         <li>Networking tra partecipanti</li>
                     </ul>
                 </div>
+            </div>
+
+            <!-- Links under program -->
+            <div class="program-links">
+                <a href="#come-funziona" class="program-link">Come Funziona</a>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSdY9m4C2n3uPdqWCKX1iPBRWIKTvyds1jn0G_CP-hyjD_DpXg/viewform" target="_blank" class="program-link">Iscriviti come Professionista</a>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSczbO6rn3BLATBTf1t_anGG4wQpga5-QCOLy_PH0smPlKG2rg/viewform" target="_blank" class="program-link">Manifestazione di interesse Attività del centro storico</a>
             </div>
         </div>
     </section>
@@ -898,23 +1404,71 @@
     </section>
 
     <!-- CTA Final -->
-    <section class="section section-alt" id="apply">
-        <div class="container" style="text-align: center;">
+    <section class="section section-alt" id="partecipa">
+        <div class="container">
             <div class="section-header">
                 <div class="section-tag">Candidature Aperte</div>
-                <h2 class="section-title">Pronto a Partire?</h2>
+                <h2 class="section-title">Partecipa all'Experience Tour</h2>
                 <p class="section-description">
                     Un progetto breve nella distanza, ma profondo nella visione.
                     Una chiamata di responsabilità, di sguardo e di presenza.
                 </p>
             </div>
-            <a href="#" class="btn-light">
-                Richiedi Accreditamento
-                <span>→</span>
-            </a>
-            <p style="color: var(--gray-700); margin-top: 2rem;">
-                Scadenza: <strong>5 Dicembre 2025</strong>
+
+            <div class="cta-cards">
+                <div class="cta-card cta-card-primary fade-in">
+                    <div class="cta-card-icon">📸</div>
+                    <h3>Sei un Professionista?</h3>
+                    <p>Giornalisti, fotografi, videomaker, content creator, podcaster e storyteller: candidati per documentare e raccontare il centro storico di Cosenza.</p>
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSdY9m4C2n3uPdqWCKX1iPBRWIKTvyds1jn0G_CP-hyjD_DpXg/viewform" target="_blank" class="btn-cta-primary">
+                        Iscriviti come Professionista
+                        <span>→</span>
+                    </a>
+                </div>
+
+                <div class="cta-card cta-card-secondary fade-in">
+                    <div class="cta-card-icon">🏛️</div>
+                    <h3>Sei un'azienda del centro storico?</h3>
+                    <p>Botteghe, laboratori, attività commerciali e culturali del centro storico: manifesta il tuo interesse per essere inclusa nel percorso dell'Experience Tour.</p>
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSczbO6rn3BLATBTf1t_anGG4wQpga5-QCOLy_PH0smPlKG2rg/viewform" target="_blank" class="btn-cta-secondary">
+                        Aderisci come Azienda
+                        <span>→</span>
+                    </a>
+                </div>
+            </div>
+
+            <p style="color: var(--gray-700); margin-top: 3rem; text-align: center;">
+                Scadenza iscrizioni: <strong>5 Dicembre 2025</strong>
             </p>
+        </div>
+    </section>
+
+    <!-- Chi Siamo COI -->
+    <section class="section" id="chi-siamo">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-tag">Chi Siamo</div>
+                <h2 class="section-title">Cosenza Open Incubator</h2>
+                <p class="section-description">
+                    <strong>Cosenza Open Incubator</strong> è l'incubatore di imprese culturali e turistiche che l'Università della Calabria ha realizzato nel <strong>Centro Storico di Cosenza</strong>, grazie al finanziamento del Ministero della Cultura a valere sul Fondo Sviluppo e Coesione 2014-2020, Piano Sviluppo e Coesione del Ministero della cultura.
+                </p>
+                <p class="section-description" style="margin-top: 1rem;">
+                    L'incubatore mira a <strong>rafforzare la capacità delle imprese</strong> di realizzare uno o più prodotti, consolidare sinergie e <strong>contribuire alla crescita del tessuto economico</strong> del Centro storico di Cosenza.
+                </p>
+            </div>
+
+            <div class="press-section fade-in">
+                <h3 style="text-align: center; font-family: 'Space Grotesk', sans-serif; font-size: 1.3rem; color: var(--gray-700); margin-bottom: 2rem;">Parlano di noi</h3>
+                <div class="press-logos">
+                    <img src="logo-press-1.png" alt="Press 1">
+                    <img src="logo-press-2.png" alt="Press 2">
+                    <img src="logo-press-3.png" alt="Press 3">
+                </div>
+            </div>
+
+            <div class="partner-logos-section fade-in" style="margin-top: 4rem; text-align: center;">
+                <img src="loghi-footer.png" alt="Partner Istituzionali" style="max-width: 70%; height: auto;">
+            </div>
         </div>
     </section>
 
@@ -925,8 +1479,7 @@
                 <div class="footer-brand">
                     <h3>Cosenza <span>Open</span></h3>
                     <p>
-                        Piattaforma di sviluppo territoriale promossa dal
-                        Cosenza Open Incubator.
+                        Piattaforma di sviluppo e trasformazione territoriale realizzata e promossa dal Cosenza Open Incubator.
                     </p>
                     <p style="font-size: 0.85rem; margin-top: 2rem;">
                         Palazzo Spadafora<br>
@@ -938,31 +1491,22 @@
                     <h4>Link Utili</h4>
                     <ul class="footer-links">
                         <li><a href="#programma">Programma</a></li>
-                        <li><a href="#apply">Iscrizione</a></li>
-                        <li><a href="#">FAQ</a></li>
-                        <li><a href="#">Contatti</a></li>
+                        <li><a href="#partecipa">Iscrizione</a></li>
+                        <li><a href="mailto:coi@unical.it">Contatti</a></li>
                     </ul>
                 </div>
 
                 <div class="footer-section">
                     <h4>Seguici</h4>
                     <ul class="footer-links">
-                        <li><a href="#">Instagram</a></li>
-                        <li><a href="#">Facebook</a></li>
-                        <li><a href="#">LinkedIn</a></li>
-                        <li><a href="#">Twitter</a></li>
+                        <li><a href="https://www.instagram.com/cosenza_open_incubator/" target="_blank">Instagram</a></li>
+                        <li><a href="https://www.facebook.com/profile.php?id=61555242280135" target="_blank">Facebook</a></li>
                     </ul>
                 </div>
             </div>
 
-            <div class="footer-divider"></div>
-
             <div class="footer-bottom">
-                <p>© 2025 Cosenza Open. Tutti i diritti riservati.</p>
-                <div class="footer-logos">
-                    <span style="opacity: 0.5; font-size: 0.85rem;">Partner:</span>
-                    <!-- Qui vanno i loghi veri -->
-                </div>
+                <p class="footer-credits" style="color: white;">Pagina realizzata con ❤️ dallo staff del Cosenza Open Incubator</p>
             </div>
         </div>
     </footer>
@@ -1001,6 +1545,23 @@
                         behavior: 'smooth'
                     });
                 }
+            });
+        });
+
+        // Toggle
+        document.querySelectorAll('.toggle-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const target = this.getAttribute('data-target');
+
+                // Remove active from all buttons
+                document.querySelectorAll('.toggle-btn').forEach(b => b.classList.remove('active'));
+                // Add active to clicked button
+                this.classList.add('active');
+
+                // Hide all content
+                document.querySelectorAll('.toggle-content').forEach(c => c.classList.remove('active'));
+                // Show target content
+                document.getElementById(target).classList.add('active');
             });
         });
     </script>
