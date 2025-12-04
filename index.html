@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Experience Tour - Cosenza Open</title>
+    <title>Cosenza Open - Un centro storico da scoprire, amare, raccontare</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -123,13 +123,13 @@
             border-radius: 50px;
         }
 
-        .hero-pretitle {
+        .hero-tagline {
             font-family: 'Space Grotesk', sans-serif;
-            font-size: clamp(2rem, 4vw, 3rem);
-            font-weight: 700;
+            font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+            font-weight: 500;
             color: var(--accent);
-            margin-bottom: 0.5rem;
-            letter-spacing: -1px;
+            margin-bottom: 1.5rem;
+            letter-spacing: 0;
         }
 
         .hero h1 {
@@ -604,10 +604,68 @@
             object-fit: contain;
         }
 
+        .startup-header {
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--gray-200);
+            margin-bottom: 1.5rem;
+        }
+
+        .startup-bio {
+            color: var(--gray-700);
+            font-size: 0.9rem;
+            line-height: 1.6;
+            margin-top: 1rem;
+        }
+
+        .startup-percorso {
+            flex: 1;
+        }
+
+        .percorso-label {
+            display: inline-block;
+            font-size: 0.7rem;
+            font-weight: 700;
+            color: var(--accent);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+            padding: 0.3rem 0.8rem;
+            background: rgba(255, 107, 53, 0.1);
+            border-radius: 20px;
+        }
+
+        .startup-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.75rem;
+            line-height: 1.3;
+        }
+
         .startup-description {
             color: var(--gray-700);
             font-size: 0.95rem;
             line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .startup-cta {
+            display: inline-block;
+            padding: 0.85rem 1.75rem;
+            background: var(--accent);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .startup-cta:hover {
+            background: var(--primary);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
         }
 
         @media (max-width: 1024px) {
@@ -892,8 +950,8 @@
                 margin-top: 80px;
             }
 
-            .hero-pretitle {
-                font-size: 1.2rem;
+            .hero-tagline {
+                font-size: 1rem;
             }
 
             .hero h1 {
@@ -1093,8 +1151,8 @@
             <div class="hero-badge">
                 📍 11-12 Dicembre 2025
             </div>
-            <p class="hero-pretitle">Cosenza Open</p>
-            <h1>Experience <span>Tour</span></h1>
+            <h1>Cosenza <span>Open</span></h1>
+            <p class="hero-tagline">Un centro storico da scoprire, amare, raccontare</p>
             <p class="hero-subtitle">
                 Un laboratorio narrativo nel cuore di Cosenza. Due giorni per scoprire,
                 documentare e raccontare il centro storico attraverso uno sguardo professionale.
@@ -1134,7 +1192,7 @@
                 <div class="section-tag">Come Funziona</div>
                 <h2 class="section-title">Scegli il tuo ruolo</h2>
                 <p class="section-description">
-                    L'Experience Tour coinvolge due anime: chi racconta e chi si racconta
+                    Cosenza Open coinvolge due anime: chi racconta e chi si racconta
                 </p>
             </div>
 
@@ -1263,7 +1321,7 @@
                 <div class="section-header">
                     <div class="section-tag">Cosa Produrrai</div>
                     <p class="section-description">
-                        Durante l'Experience Tour avrai l'opportunità di produrre contenuti originali
+                        Durante Cosenza Open avrai l'opportunità di produrre contenuti originali
                         che contribuiranno alla valorizzazione del centro storico di Cosenza:
                         <strong>fotografie, video, articoli, podcast</strong> e molto altro.
                     </p>
@@ -1294,24 +1352,48 @@
 
             <div class="startup-grid">
                 <div class="startup-card fade-in">
-                    <div class="startup-logo">
-                        <img src="logo-3dplus.png" alt="3D Plus">
+                    <div class="startup-header">
+                        <div class="startup-logo">
+                            <img src="logo-3dplus.png" alt="3D Plus">
+                        </div>
+                        <p class="startup-bio">Azienda che sviluppa soluzioni digitali per musei, scuole, aziende ed enti pubblici, rendendo il patrimonio storico e artistico un'esperienza educativa ed emozionante.</p>
                     </div>
-                    <p class="startup-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.</p>
+                    <div class="startup-percorso">
+                        <span class="percorso-label">IL PERCORSO</span>
+                        <h4 class="startup-title">La Roma ritrovata nella città di Cosenza</h4>
+                        <p class="startup-description">Un itinerario alla scoperta delle radici romane di Cosenza, attraverso QR Code che attivano contenuti audio e fotografici originali. Un viaggio nelle stratificazioni della città, tra archeologia visibile e memoria nascosta.</p>
+                    </div>
+                    <a href="#partecipa" class="startup-cta">Registrati adesso →</a>
                 </div>
 
                 <div class="startup-card fade-in">
-                    <div class="startup-logo">
-                        <img src="logo-aistech.png" alt="Aistech">
+                    <div class="startup-header">
+                        <div class="startup-logo">
+                            <img src="logo-aistech.png" alt="Aistech">
+                        </div>
+                        <p class="startup-bio">Azienda specializzata in accessibilità e inclusione, con forte competenza nelle disabilità visive.</p>
                     </div>
-                    <p class="startup-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.</p>
+                    <div class="startup-percorso">
+                        <span class="percorso-label">IL PERCORSO</span>
+                        <h4 class="startup-title">Sentire Cosenza</h4>
+                        <p class="startup-description">Un itinerario breve e inclusivo che permette di scoprire il centro storico attraverso contenuti audio e testuali attivabili semplicemente avvicinandosi ai QR NaviLens. Ogni tappa offre una piccola storia, una descrizione sensoriale o un orientamento utile per muoversi tra piazze, botteghe e luoghi simbolici della città.</p>
+                    </div>
+                    <a href="#partecipa" class="startup-cta">Registrati adesso →</a>
                 </div>
 
                 <div class="startup-card fade-in">
-                    <div class="startup-logo">
-                        <img src="logo-elleblab.png" alt="ElleBLab">
+                    <div class="startup-header">
+                        <div class="startup-logo">
+                            <img src="logo-elleblab.png" alt="ElleBLab">
+                        </div>
+                        <p class="startup-bio">Azienda spin-off della Galleria Ellebi dove arte, design e artigianato si incontrano per valorizzare il territorio con progetti che fondono creatività, cultura e innovazione.</p>
                     </div>
-                    <p class="startup-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.</p>
+                    <div class="startup-percorso">
+                        <span class="percorso-label">IL PERCORSO</span>
+                        <h4 class="startup-title">STUPOR MUNDI: trame di design nel centro storico</h4>
+                        <p class="startup-description">Un percorso che intreccia design contemporaneo e botteghe del centro storico: oggetti realizzati da artisti e artigiani dialogano con i luoghi che li ospitano, rivelando una Cosenza fatta di creatività, collaborazioni e storie materiali.</p>
+                    </div>
+                    <a href="#partecipa" class="startup-cta">Registrati adesso →</a>
                 </div>
             </div>
         </div>
@@ -1341,7 +1423,7 @@
                 </div>
 
                 <div class="program-item">
-                    <h4>Experience Tour</h4>
+                    <h4>Esplorazione</h4>
                     <ul>
                         <li>Esplorazione libera del centro storico</li>
                         <li>Visita a botteghe e laboratori</li>
@@ -1426,7 +1508,7 @@
         <div class="container">
             <div class="section-header">
                 <div class="section-tag">Candidature Aperte</div>
-                <h2 class="section-title">Partecipa all'Experience Tour</h2>
+                <h2 class="section-title">Partecipa a Cosenza Open</h2>
                 <p class="section-description">
                     Un progetto breve nella distanza, ma profondo nella visione.
                     Una chiamata di responsabilità, di sguardo e di presenza.
@@ -1447,7 +1529,7 @@
                 <div class="cta-card cta-card-secondary fade-in">
                     <div class="cta-card-icon">🏛️</div>
                     <h3>Sei un'azienda del centro storico?</h3>
-                    <p>Botteghe, laboratori, attività commerciali e culturali del centro storico: manifesta il tuo interesse per essere inclusa nel percorso dell'Experience Tour.</p>
+                    <p>Botteghe, laboratori, attività commerciali e culturali del centro storico: manifesta il tuo interesse per essere inclusa nel percorso di Cosenza Open.</p>
                     <a href="https://docs.google.com/forms/d/e/1FAIpQLSczbO6rn3BLATBTf1t_anGG4wQpga5-QCOLy_PH0smPlKG2rg/viewform" target="_blank" class="btn-cta-secondary">
                         Aderisci come Azienda
                         <span>→</span>
